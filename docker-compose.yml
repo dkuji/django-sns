@@ -6,3 +6,15 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+  frontend:
+    build: .
+    command: |
+      /bin/bash -c "
+      cd /app/frontend 
+      yarn install 
+      yarn serve
+      "
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
