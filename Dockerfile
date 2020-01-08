@@ -19,7 +19,7 @@ RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
 
 RUN cd ${APP_HOME} && \
   pipenv install && \
-  yarn global add @vue/cli
+  yarn global add @vue/cli node-gyp
 
 WORKDIR ${APP_HOME}/${PROJECT}
 
