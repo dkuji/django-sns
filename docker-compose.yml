@@ -1,18 +1,20 @@
 version: "3"
 services:
   pipenv-sns:
+    container_name: django
     build: .
     ports:
       - "8000:8000"
     volumes:
       - .:/app
   frontend:
+    container_name: front
     build: .
     command: |
       /bin/bash -c "
       cd /app/frontend 
       yarn install 
-      yarn serve
+      yarn run dev
       "
     ports:
       - "8080:8080"
