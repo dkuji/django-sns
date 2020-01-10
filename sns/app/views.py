@@ -40,3 +40,6 @@ def listfunc(request):
 def logoutfunc(request):
     logout(request)
     return redirect('login')
+
+def vuefunc(request):
+    return render(request, 'vue.html')

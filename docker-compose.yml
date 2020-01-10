@@ -1,8 +1,22 @@
 version: "3"
 services:
-  pipenv-sns:
+  django:
+    container_name: django-sns-vue
     build: .
     ports:
       - "8000:8000"
+    volumes:
+      - .:/app
+
+  frontend:
+    container_name: front
+    build: .
+    command: |
+      /bin/bash -c "
+      cd ../
+      yarn run dev
+      "
+    ports:
+      - "8080:8080"
     volumes:
       - .:/app

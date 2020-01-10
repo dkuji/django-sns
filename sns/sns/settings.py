@@ -25,7 +25,7 @@ SECRET_KEY = '#m5k54#y4wt6g2ufq8cm%!$(e6@fwf^0=4y4un#oob(5m*&azk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    'webpack_loader'
 ]
 
 MIDDLEWARE = [
@@ -121,7 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, '../static'),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -129,3 +130,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/medi/'
 
 LOGIN_URL = 'login'
+
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'webpack_bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, '../webpack-stats.json'),
+    }
+}
