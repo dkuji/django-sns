@@ -5,6 +5,9 @@
       <img src="./assets/logo.png" />
       <HelloWorld msg="Welcome to Your Vue.js App hoge ge ge ge ge" />
     </div>
+    <div>
+      <v-alert type="success">I'm a success alert.</v-alert>
+    </div>
   </v-app>
 </template>
 

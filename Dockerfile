@@ -21,7 +21,8 @@ RUN cd ${APP_HOME} && \
   pipenv install && \
   pipenv install --dev && \
   yarn global add @vue/cli node-gyp && \
-  yarn install
+  yarn install && \
+  yarn install --dev
 
 WORKDIR ${APP_HOME}/${PROJECT}
 
