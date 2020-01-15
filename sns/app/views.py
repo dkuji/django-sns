@@ -4,9 +4,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from .models import BoardModel
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
+import logging
 # Create your views here.
 
+logger = logging.getLogger('django')
 
 def signupfunc(request):
     if request.method == 'POST':
@@ -22,14 +25,21 @@ def signupfunc(request):
 
 def loginfunc(request):
     if request.method == 'POST':
+        logger.info(request.headers)
+        logger.info(request.POST)
         username2 = request.POST['username']
         password2 = request.POST['password']
         user = authenticate(request, username=username2, password=password2)
         if user is not None:
             login(request, user)
+            logger.info('success')
             return redirect('list')
         else:
-            return redirect('login')
+            logger.info('fail')
+            return HttpResponse('Unauthorized', status=401)
+            #return redirect('login')
+    logger.info(request.headers)
+    logger.info(request.GET)
     return render(request, 'login.html')
 
 @login_required

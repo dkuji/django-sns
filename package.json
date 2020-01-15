@@ -26,6 +26,8 @@
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
+    "axios": "^0.19.1",
+    "sweetalert2": "^9.5.4",
     "vue": "^2.6.11",
     "vuetify": "^2.2.3",
     "vuetify-loader": "^1.4.3"

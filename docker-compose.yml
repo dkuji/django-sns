@@ -14,6 +14,8 @@ services:
     command: |
       /bin/bash -c "
       cd ../
+      yarn install
+      yarn install --dev
       yarn run dev
       "
     ports:
