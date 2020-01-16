@@ -50,16 +50,26 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        /*
+        options: {
+          loaders: {
+            scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
+            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
+          }
+        }
+        */
       },
+      /*
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
+          'vue-style-loader',
           'css-loader',
           'sass-loader'
         ]
       },
+      */
       {
         test: /\.css$/,
         use: [
@@ -92,18 +102,12 @@ module.exports = {
           'css-loader',
           {
             loader: 'sass-loader',
-            // Requires sass-loader@^7.0.0
-            options: {
-              implementation: require('sass'),
-              fiber: require('fibers'),
-              indentedSyntax: true // optional
-            },
             // Requires sass-loader@^8.0.0
             options: {
               implementation: require('sass'),
               sassOptions: {
                 fiber: require('fibers'),
-                indentedSyntax: true // optional
+                //indentedSyntax: true // optional
               },
             },
           },

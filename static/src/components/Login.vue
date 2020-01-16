@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app id="inspire" :dark="setTheme">
     <v-content>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
@@ -43,6 +43,7 @@
         </v-row>
       </v-container>
     </v-content>
+    <!--<v-switch :label="`Dark Theme`" v-model="goDark"></v-switch>-->
   </v-app>
 </template>
 
@@ -55,6 +56,7 @@ export default {
   props: { csrfToken: String },
   //props: ["csrf_token"]
   data: () => ({
+    goDark: false,
     credentials: {},
     valid: true,
     loading: false,
@@ -107,6 +109,15 @@ export default {
             timer: 3000
           });
         });
+    }
+  },
+  computed: {
+    setTheme() {
+      if (this.goDark == true) {
+        return (this.$vuetify.theme.dark = true);
+      } else {
+        return (this.$vuetify.theme.dark = false);
+      }
     }
   }
 };

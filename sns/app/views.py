@@ -33,7 +33,7 @@ def loginfunc(request):
         if user is not None:
             login(request, user)
             logger.info('success')
-            return redirect('list')
+            return redirect('main')
         else:
             logger.info('fail')
             return HttpResponse('Unauthorized', status=401)
@@ -53,3 +53,15 @@ def logoutfunc(request):
 
 def vuefunc(request):
     return render(request, 'vue.html')
+
+@login_required
+def mainfunc(request):
+    return render(request, 'main.html')
+
+@login_required
+def serviceafunc(request):
+    return render(request, 'servicea.html')
+
+@login_required
+def servicebfunc(request):
+    return render(request, 'serviceb.html')
